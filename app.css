@@ -1,0 +1,50 @@
+ul
+{
+    list-style-type: none;
+}
+ul > li{
+    background-color: bisque;
+    margin: 1px;
+    padding: 7px;
+    text-align: right;
+}
+
+.heading{
+    font-family: 'Vollkorn', serif;
+    color: gold;
+}
+
+.flick-name{
+    text-align:left;
+}
+
+.flick-year{
+    text-align:left;
+}
+
+.space{
+    margin-right: 20px;
+}
+
+.promote{
+    background-color: goldenrod;
+    text-transform: uppercase;
+    font-family: opensans;
+    font-weight: 500;
+    border: solid;
+    border-width: thick;
+    border-color: #760846;
+}
+
+.template {
+    visibility: hidden;
+}
+
+body {
+    background-image: url("flick-yourself.png");
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+}

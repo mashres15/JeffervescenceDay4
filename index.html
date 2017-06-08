@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Jeffervescence</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
+        <link rel="stylesheet" href="app.css">
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    </head>
+    <body>
+        <header></header>
+        <div class="row">
+            <div class="medium-8 medium-offset-2 column">
+                <h1 class="heading">Jeffervescence</h1>
+                <div class="container">
+                    <form id="flick-form">
+                        
+                            <input
+                                   type="text"
+                                   class="input-group-field"
+                                   name="flickName"
+                                   placeholder="Name a flick"
+                                   autofocus
+                                   required
+                                   >
+                        
+                        <div class="input-group">
+                            <input
+                                   type="text"
+                                   class="input-group-field"
+                                   name="year"
+                                   placeholder="Enter the year"
+                                   autofocus
+                                   required
+                                   >
+                            <div class="input-group-button">
+                                <button 
+                                        class="success button"
+                                        type="submit"
+                                        >
+                                    Add flick
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="medium-8 medium-offset-2 column">
+                    <ul class="no-bullet" id="flick-list">
+                        <li class="flick template">
+                            <span class="flick-name small-5 columns"></span>
+                            <span class="flick-year small-1 columns"></span>
+                            <span class="actions small-6">
+                                <button class="fav button">Fav</button>
+                                <button class="remove button alert ">Remove</button>
+                                <button class="up button alert ">Up</button>
+                                <button class="down button alert ">Down</button>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
