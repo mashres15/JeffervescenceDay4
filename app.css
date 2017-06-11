@@ -12,6 +12,12 @@ ul > li{
 .button.warning, .button.success{
     color: #fefefe;
 }
+
+.row-heading{
+    font-weight: bold;
+    font-family: 'Vollkorn', serif;
+    font-size: 20px;
+}
 .heading{
     font-family: 'Vollkorn', serif;
     color: gold;
