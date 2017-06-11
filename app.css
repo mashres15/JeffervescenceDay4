@@ -9,7 +9,9 @@ ul > li{
     text-align: right;
     vertical-align:middle;
 }
-
+.button.warning, .button.success{
+    color: #fefefe;
+}
 .heading{
     font-family: 'Vollkorn', serif;
     color: gold;

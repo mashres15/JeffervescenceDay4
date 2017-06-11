@@ -169,8 +169,8 @@ const app = {
         const index = this.flicks.findIndex((currentFlick) => {
             return currentFlick.id === flick.id
         })
-        console.log(this.flicks)
-        console.log(index)
+        //console.log(this.flicks)
+        //console.log(index)
 
         if (index > 0) {
             // Changing the DOM
