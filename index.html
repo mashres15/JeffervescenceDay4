@@ -10,24 +10,24 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
         <link rel="stylesheet" href="app.css">
         <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
     <body>
-        <header></header>
+        <header><center><img src="flick-yourself.png" class="logo"><h1 class="heading">Jeffervescence</h1></center></header>
         <div class="row">
             <div class="medium-8 medium-offset-2 column">
-                <h1 class="heading">Jeffervescence</h1>
                 <div class="container">
                     <form id="flick-form">
-                        
-                            <input
-                                   type="text"
-                                   class="input-group-field"
-                                   name="flickName"
-                                   placeholder="Name a flick"
-                                   autofocus
-                                   required
-                                   >
-                        
+
+                        <input
+                               type="text"
+                               class="input-group-field"
+                               name="flickName"
+                               placeholder="Name a flick"
+                               autofocus
+                               required
+                               >
+
                         <div class="input-group">
                             <input
                                    type="text"
@@ -51,16 +51,19 @@
             </div>
 
             <div class="row">
+
                 <div class="medium-8 medium-offset-2 column">
-                    <ul class="no-bullet" id="flick-list">
+
+                    <ul class="no-bullet" id="flick-list">                    
                         <li class="flick template">
                             <span class="flick-name small-5 columns"></span>
                             <span class="flick-year small-1 columns"></span>
-                            <span class="actions small-6">
-                                <button class="fav button">Fav</button>
-                                <button class="remove button alert ">Remove</button>
-                                <button class="up button alert ">Up</button>
-                                <button class="down button alert ">Down</button>
+                            <span class="actions">
+                                <button class="fav button fa fa-hand-o-right"></button>
+                                <button class="edit button warning fa fa-pencil-square-o"></button>
+                                <button class="up button warning fa fa-arrow-up"></button>
+                                <button class="down button warning fa fa-arrow-down"></button>
+                                <button class="remove button alert fa fa-trash-o"> </button>
                             </span>
                         </li>
                     </ul>

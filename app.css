@@ -5,8 +5,9 @@ ul
 ul > li{
     background-color: bisque;
     margin: 1px;
-    padding: 7px;
+    padding: 5px;
     text-align: right;
+    vertical-align:middle;
 }
 
 .heading{
@@ -16,32 +17,40 @@ ul > li{
 
 .flick-name{
     text-align:left;
+    line-height: 50px;
 }
 
 .flick-year{
     text-align:left;
+    line-height: 50px;
+}
+
+#flick-form{
+    margin-bottom: 40px;
 }
 
 .space{
     margin-right: 20px;
 }
+.logo{
+    height:100px;
+}
 
 .promote{
-    background-color: goldenrod;
+    background-color: white;
     text-transform: uppercase;
     font-family: opensans;
     font-weight: 500;
     border: solid;
-    border-width: thick;
-    border-color: #760846;
+    border-color: cornflowerblue;
 }
 
 .template {
-    visibility: hidden;
+    display: none;
 }
 
 body {
-    background-image: url("flick-yourself.png");
+    background-image: url("pics.jpg");
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-position: top center;
