@@ -37,6 +37,7 @@ ul > li{
 .button.warning, .button.success{
     color: #fefefe;
 }
+<<<<<<< HEAD
 
 .row-heading{
     font-weight: bold;
@@ -46,6 +47,8 @@ ul > li{
 =======
 
 >>>>>>> parent of 447e512... Changed button color
+=======
+>>>>>>> parent of 62325a4... added row heading
 .heading{
     font-family: 'Vollkorn', serif;
     color: white;
