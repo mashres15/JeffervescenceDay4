@@ -1,71 +1,40 @@
-
-ul{
+ul
+{
     list-style-type: none;
 }
-.fixTop{
-    position: fixed;
-    width: 100%;
-    height: 200px;
-}
-
-.newsfeed-header{
-    padding-top: 10px;
-    background: #3B5999;
-    margin-bottom: 0px;
-    padding-bottom: 10px;
-}
-
-#feed{
-    margin-top:200px;
-}
-
-#movie-form{
-    position: fixed;
-    margin-right:10%;
-    margin-left:10%;
-    margin-top: 0px;
-}
-
 ul > li{
-    background-color: white;
-    margin: 1em;
-    padding: .75em;
-    transition: 1s;
+    background-color: bisque;
+    margin: 1px;
+    padding: 5px;
+    text-align: right;
     vertical-align:middle;
 }
-<<<<<<< HEAD
 .button.warning, .button.success{
     color: #fefefe;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 .row-heading{
     font-weight: bold;
     font-family: 'Vollkorn', serif;
     font-size: 20px;
 }
-=======
-
->>>>>>> parent of 447e512... Changed button color
-=======
->>>>>>> parent of 62325a4... added row heading
-=======
->>>>>>> parent of 62325a4... added row heading
 .heading{
     font-family: 'Vollkorn', serif;
-    color: white;
-    
+    color: gold;
 }
 
-.movie-name{
+.flick-name{
     text-align:left;
     line-height: 50px;
 }
 
-.movie-year{
-    float:right;
+.flick-year{
+    text-align:left;
     line-height: 50px;
+}
+
+#flick-form{
+    margin-bottom: 40px;
 }
 
 .space{
@@ -76,13 +45,12 @@ ul > li{
 }
 
 .promote{
-    background-color: #FA6121;
+    background-color: white;
     text-transform: uppercase;
     font-family: opensans;
     font-weight: 500;
-    transition: 1s;
-    border: solid white thin;
-    color: white;
+    border: solid;
+    border-color: cornflowerblue;
 }
 
 .template {
@@ -90,7 +58,7 @@ ul > li{
 }
 
 body {
-    background-image: url("fb.jpg");
+    background-image: url("pics.jpg");
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-position: top center;

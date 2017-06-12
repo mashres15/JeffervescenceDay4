@@ -1,6 +1,6 @@
 const app = {
     init(selectors) {
-        this.movies = []
+        this.flicks = []
         this.max = 0
         this.list = document
             .querySelector(selectors.listSelector)
@@ -8,82 +8,82 @@ const app = {
             .querySelector(selectors.templateSelector)
         document
             .querySelector(selectors.formSelector)
-            .addEventListener('submit', this.addMovieViaForm.bind(this))
+            .addEventListener('submit', this.addFlickViaForm.bind(this))
 
         this.load()
     },
     
     /*-----------------------------------------
-    Method to load the movie from localStorage
+    Method to load the flick from localStorage
     ------------------------------------------*/
     load() {
         // Get the JSON string out of localStorage
-        const moviesJSON = localStorage.getItem('movies')
+        const flicksJSON = localStorage.getItem('flicks')
 
         // Turn that into an array
-        const moviesArray = JSON.parse(moviesJSON)
+        const flicksArray = JSON.parse(flicksJSON)
 
-        // Set this.movies to that array
-        if (moviesArray) {
-            moviesArray
+        // Set this.flicks to that array
+        if (flicksArray) {
+            flicksArray
                 .reverse()
-                .map(this.addMovie.bind(this))
+                .map(this.addFlick.bind(this))
         }
     },
 
-    addMovie(movie) {
-        const listItem = this.renderListItem(movie)
+    addFlick(flick) {
+        const listItem = this.renderListItem(flick)
         this.list
             .insertBefore(listItem, this.list.firstChild)
 
-        if(movie.id > this.max){
-            this.max = movie.id
+        if(flick.id > this.max){
+            this.max = flick.id
         }
-        this.movies.unshift(movie)
+        this.flicks.unshift(flick)
         this.save()
     },
 
-    addMovieViaForm(ev) {
+    addFlickViaForm(ev) {
         ev.preventDefault()
         const f = ev.target
-        //console.log(f.movieName.value)
-        const movie = {
+        //console.log(f.flickName.value)
+        const flick = {
             id: this.max + 1,
-            name: f.movieName.value,
+            name: f.flickName.value,
             year: f.year.value,
             promote: false,
         }
 
-        this.addMovie(movie)
+        this.addFlick(flick)
         f.reset()
     },
 
     save() {
         localStorage
-            .setItem('movies', JSON.stringify(this.movies))
+            .setItem('flicks', JSON.stringify(this.flicks))
 
     },
 
-    renderListItem(movie) {
+    renderListItem(flick) {
         const item = this.template.cloneNode(true)
         item.classList.remove('template')
-        item.dataset.id = movie.id
+        item.dataset.id = flick.id
         
-        if(movie.promote){
+        if(flick.promote){
             item.classList.add('promote')
         }
         
         item
-            .querySelector('.movie-name')
-            .textContent = movie.name
+            .querySelector('.flick-name')
+            .textContent = flick.name
 
         item
-            .querySelector('.movie-year')
-            .textContent = "Category: "+movie.year
+            .querySelector('.flick-year')
+            .textContent = flick.year
 
         item
             .querySelector('button.remove')
-            .addEventListener('click', this.removeMovie.bind(this))
+            .addEventListener('click', this.removeFlick.bind(this))
 
         item
             .querySelector('button.edit')
@@ -91,46 +91,46 @@ const app = {
 
         item
             .querySelector('button.fav')
-            .addEventListener('click', this.promoteMovie.bind(this, movie))
+            .addEventListener('click', this.promoteFlick.bind(this, flick))
 
         item
             .querySelector('button.up')
-            .addEventListener('click', this.moveUp.bind(this, movie))
+            .addEventListener('click', this.moveUp.bind(this, flick))
 
         item
             .querySelector('button.down')
-            .addEventListener('click', this.moveDown.bind(this, movie))
+            .addEventListener('click', this.moveDown.bind(this, flick))
 
         return item
     },
 
     editText(ev){
         const editbutton = ev.target
-        const listItem = ev.target.closest('.movie')
-        const movieName = listItem.children[2]
-        if(movieName.isContentEditable){
+        const listItem = ev.target.closest('.flick')
+        const flickName = listItem.firstElementChild
+        if(flickName.isContentEditable){
             //console.log("in true")
-            movieName.contentEditable = false
+            flickName.contentEditable = false
             editbutton.classList.add('fa-pencil-square-o')
             editbutton.classList.remove('fa-check')
             editbutton.classList.add('warning')
             editbutton.classList.remove('success')
 
-            // Find the movie in the array, and remove it
-            for (let i = 0; i < this.movies.length; i++) {
-                const currentId = this.movies[i].id.toString()
+            // Find the flick in the array, and remove it
+            for (let i = 0; i < this.flicks.length; i++) {
+                const currentId = this.flicks[i].id.toString()
                 if (listItem.dataset.id === currentId) {
-                    this.movies[i].name = movieName.innerHTML
+                    this.flicks[i].name = flickName.innerHTML
                     break
                 }
             }
-            //console.log(this.movies)
+            //console.log(this.flicks)
             this.save()
         }
         else{
             //console.log("false")
-            movieName.contentEditable = true
-            movieName.focus()
+            flickName.contentEditable = true
+            flickName.focus()
             editbutton.classList.add('fa-check')
             editbutton.classList.remove('fa-pencil-square-o')
             editbutton.classList.remove('warning')
@@ -138,23 +138,23 @@ const app = {
         }
     },
 
-    promoteMovie(movie, ev){
-        const listItem = ev.target.closest('.movie')
-        movie.promote = !movie.promote
+    promoteFlick(flick, ev){
+        const listItem = ev.target.closest('.flick')
+        flick.promote = !flick.promote
 
         // toggle promote
         listItem.classList.toggle('promote')
         this.save()
     },
 
-    removeMovie(ev) {
-        const listItem = ev.target.closest('.movie')
+    removeFlick(ev) {
+        const listItem = ev.target.closest('.flick')
 
-        // Find the movie in the array, and remove it
-        for (let i = 0; i < this.movies.length; i++) {
-            const currentId = this.movies[i].id.toString()
+        // Find the flick in the array, and remove it
+        for (let i = 0; i < this.flicks.length; i++) {
+            const currentId = this.flicks[i].id.toString()
             if (listItem.dataset.id === currentId) {
-                this.movies.splice(i, 1)
+                this.flicks.splice(i, 1)
                 break
             }
         }
@@ -163,46 +163,41 @@ const app = {
         this.save()
     },
 
-    moveUp(movie, ev) {
-        const li = ev.target.closest('.movie')
+    moveUp(flick, ev) {
+        const li = ev.target.closest('.flick')
 
-        const index = this.movies.findIndex((currentMovie) => {
-            return currentMovie.id === movie.id
+        const index = this.flicks.findIndex((currentFlick) => {
+            return currentFlick.id === flick.id
         })
-<<<<<<< HEAD
-        console.log(this.flicks)
-        console.log(index)
-=======
-        //console.log(this.movies)
+        //console.log(this.flicks)
         //console.log(index)
->>>>>>> 1350604a8e592bdf858569ff77d52aefb37b8960
 
         if (index > 0) {
             // Changing the DOM
             this.list.insertBefore(li, li.previousElementSibling)
 
-            //Swap the movies in the array
-            const previousMovie = this.movies[index - 1]
-            this.movies[index - 1] = movie
-            this.movies[index] = previousMovie
+            //Swap the flicks in the array
+            const previousFlick = this.flicks[index - 1]
+            this.flicks[index - 1] = flick
+            this.flicks[index] = previousFlick
 
             this.save()
         }
     },
 
-    moveDown(movie, ev) {
-        const li = ev.target.closest('.movie')
+    moveDown(flick, ev) {
+        const li = ev.target.closest('.flick')
 
-        const index = this.movies.findIndex((currentMovie) => {
-            return currentMovie.id === movie.id
+        const index = this.flicks.findIndex((currentFlick) => {
+            return currentFlick.id === flick.id
         })
         
-        if (index < this.movies.length - 1) {
+        if (index < this.flicks.length - 1) {
             this.list.insertBefore(li.nextSibling, li)
 
-            const nextMovie = this.movies[index + 1]
-            this.movies[index + 1] = movie
-            this.movies[index] = nextMovie
+            const nextFlick = this.flicks[index + 1]
+            this.flicks[index + 1] = flick
+            this.flicks[index] = nextFlick
 
             this.save()
         }
@@ -210,9 +205,7 @@ const app = {
 }
 
 app.init({
-    formSelector: '#movie-form',
-    listSelector: '#movie-list',
-    templateSelector: '.movie.template',
+    formSelector: '#flick-form',
+    listSelector: '#flick-list',
+    templateSelector: '.flick.template',
 })
-
-
