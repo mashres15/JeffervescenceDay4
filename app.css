@@ -1,12 +1,36 @@
-ul
-{
+
+ul{
     list-style-type: none;
 }
+.fixTop{
+    position: fixed;
+    width: 100%;
+    height: 200px;
+}
+
+.newsfeed-header{
+    padding-top: 10px;
+    background: #3B5999;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+#feed{
+    margin-top:200px;
+}
+
+#movie-form{
+    position: fixed;
+    margin-right:10%;
+    margin-left:10%;
+    margin-top: 0px;
+}
+
 ul > li{
-    background-color: bisque;
-    margin: 1px;
-    padding: 5px;
-    text-align: right;
+    background-color: white;
+    margin: 1em;
+    padding: .75em;
+    transition: 1s;
     vertical-align:middle;
 }
 <<<<<<< HEAD
@@ -24,21 +48,18 @@ ul > li{
 >>>>>>> parent of 447e512... Changed button color
 .heading{
     font-family: 'Vollkorn', serif;
-    color: gold;
+    color: white;
+    
 }
 
-.flick-name{
+.movie-name{
     text-align:left;
     line-height: 50px;
 }
 
-.flick-year{
-    text-align:left;
+.movie-year{
+    float:right;
     line-height: 50px;
-}
-
-#flick-form{
-    margin-bottom: 40px;
 }
 
 .space{
@@ -49,12 +70,13 @@ ul > li{
 }
 
 .promote{
-    background-color: white;
+    background-color: #FA6121;
     text-transform: uppercase;
     font-family: opensans;
     font-weight: 500;
-    border: solid;
-    border-color: cornflowerblue;
+    transition: 1s;
+    border: solid white thin;
+    color: white;
 }
 
 .template {
@@ -62,7 +84,7 @@ ul > li{
 }
 
 body {
-    background-image: url("pics.jpg");
+    background-image: url("fb.jpg");
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-position: top center;
