@@ -3,80 +3,95 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Jeffervescence</title>
+        <title>NewsFeed</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css"> 
         <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="app.css">
     </head>
     <body>
-        <header><center><img src="flick-yourself.png" class="logo"><h1 class="heading">Jeffervescence</h1></center></header>
-        <div class="row">
-            <div class="medium-8 medium-offset-2 column">
-                <div class="container">
-                    <form id="flick-form">
 
-                        <input
-                               type="text"
-                               class="input-group-field"
-                               name="flickName"
-                               placeholder="Name a flick"
-                               autofocus
-                               required
-                               >
+        <header class="fixTop">
+            <div class="newsfeed-header">
+                <center>
+                    <h1 class="heading">NewsFeed</h1>
+                </center>
+            </div>
 
-                        <div class="input-group">
-                            <input
-                                   type="text"
-                                   class="input-group-field"
-                                   name="year"
-                                   placeholder="Enter the year"
-                                   autofocus
-                                   required
-                                   >
-                            <div class="input-group-button">
-                                <button 
-                                        class="success button"
-                                        type="submit"
-                                        >
-                                    Add flick
-                                </button>
-                            </div>
+            <form id="movie-form" style="opacity: 0.85;">
+
+                <input
+                       type="text"
+                       class="input-group-field"
+                       name="movieName"
+                       placeholder="What's in your mind?"
+                       autofocus
+                       required
+                       >
+
+                <div class="input-group">
+                        <select class="input-group-field" name="year" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="Movies">Movies</option>
+                            <option value="Dinosaurs">Dinosaurs</option>
+                        </select>
+
+                        <div class="input-group-button">
+                            <button 
+                                    class="button"
+                                    type="submit"
+                                    >
+                                Post
+                            </button>
+                        </div>
                         </div>
                     </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="medium-8 medium-offset-2 column">
-                <span class="row-heading small-5 columns">Flick Name</span>
-                <span class="row-heading small-1 columns">Year</span>
-                <span class="row-heading small-6 columns" style="text-align:center;">Actions</span>
+                </header>
+
+            <div class="medium-8 medium-offset-2 column" id="feed">
+                <div class="row">
+
+                    <div class="small-12 column">
+
+                        <ul class="no-bullet" id="movie-list">                    
+                            <li class="movie template">
+                                <strong><span class="movie-year"></span></strong><br>
+                                <span class="movie-name"></span>
+
+                                <hr>
+                                <span class="actions">
+                                    <button class="fav button fa fa-hand-o-right"></button>
+                                    <button class="edit button warning fa fa-pencil-square-o"></button>
+                                    <button class="up button warning fa fa-arrow-up"></button>
+                                    <button class="down button warning fa fa-arrow-down"></button>
+                                    <button class="remove button alert fa fa-trash-o"> </button>
+                                </span>
+                            </li>
+                        </ul>
+                        
+                        <ul class="no-bullet" id="dino-list">                    
+                            <li class="dino template">
+                                <strong><span class="dino-year"></span></strong><br>
+                                <span class="dino-name"></span>
+
+                                <hr>
+                                <span class="actions">
+                                    <button class="fav button fa fa-hand-o-right"></button>
+                                    <button class="edit button warning fa fa-pencil-square-o"></button>
+                                    <button class="up button warning fa fa-arrow-up"></button>
+                                    <button class="down button warning fa fa-arrow-down"></button>
+                                    <button class="remove button alert fa fa-trash-o"> </button>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
 
-                <div class="medium-8 medium-offset-2 column">
-
-                    <ul class="no-bullet" id="flick-list">                    
-                        <li class="flick template">
-                            <span class="flick-name small-5 columns"></span>
-                            <span class="flick-year small-1 columns"></span>
-                            <span class="actions">
-                                <button class="fav button fa fa-hand-o-right"></button>
-                                <button class="edit button warning fa fa-pencil-square-o"></button>
-                                <button class="up button warning fa fa-arrow-up"></button>
-                                <button class="down button warning fa fa-arrow-down"></button>
-                                <button class="remove button alert fa fa-trash-o"> </button>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <script src="app.js"></script>
-    </body>
-</html>
+            <script src="jquery-3.2.1.min.js"></script>
+            <script src="app.js"></script>
+            </body>
+        </html>
