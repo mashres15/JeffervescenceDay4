@@ -9,6 +9,7 @@ ul > li{
     text-align: right;
     vertical-align:middle;
 }
+<<<<<<< HEAD
 .button.warning, .button.success{
     color: #fefefe;
 }
@@ -18,6 +19,9 @@ ul > li{
     font-family: 'Vollkorn', serif;
     font-size: 20px;
 }
+=======
+
+>>>>>>> parent of 447e512... Changed button color
 .heading{
     font-family: 'Vollkorn', serif;
     color: gold;
